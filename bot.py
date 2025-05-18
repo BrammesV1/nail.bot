@@ -33,10 +33,6 @@ def show_prices(message):
     bot.send_message(message.chat.id, "Вот мои цены")
     bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMdaCkM5pCItekK_4VXSLSjVZLhV20AAnz2MRtu4khJqoznzgQMKIoBAAMCAAN5AAM2BA')
 
-@bot.message_handler(func=lambda message: messag.text == "Актуальные акции")
-def show_sales(message):
-    bot.send_message(message.chat.id, "Новым клиентам скидка 20% или парафинотерапия")
-
 @bot.message_handler(func=lambda message: message.text == "Где нахожусь")
 def show_location(message):
     bot.send_message(message.chat.id, "Я нахожусь в г. Домодедово, Улица Лунная, дом 1к1.")
@@ -52,6 +48,10 @@ def show_photo(message):
     bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMgaCkNUwvuQcsAAZMYH4n5nBNLCaI8AAKA9jEbbuJISdt0BX5Csl5mAQADAgADeQADNgQ')
     bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMhaCkNU-0uGvbY3rnZ-ZJLrcns8O8AAn_2MRtu4khJVmCCixLlOaABAAMCAAN5AAM2BA')
     bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMiaCkNU1ZxAAGvsU9R1Lhr1QABvcbtNwACgfYxG27iSElLLbFOwROJZQEAAwIAA3kAAzYE')
+
+@bot.message_handler(func=lambda message: messag.text == "Актуальные акции")
+def show_sales(message):
+    bot.send_message(message.chat.id, "Новым клиентам скидка 20% или парафинотерапия")
 
 @bot.message_handler(content_types=['photo'])
 def handle_photo(message):
