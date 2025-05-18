@@ -67,7 +67,7 @@ def webhook():
     bot.process_new_updates([update])
     return 'ok', 200
 
-if name == 'main':
+if __name__ == '__main__':
     bot.remove_webhook()
     bot.set_webhook(url='https://manikbot.onrender.com/')  # проверь URL своего сайта
     port = int(os.environ.get('PORT', 5000))
