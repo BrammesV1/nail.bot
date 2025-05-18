@@ -5,7 +5,7 @@ from flask import Flask, request
 
 TOKEN = '7827196968:AAHyoI5PbqbYEiTEgwvQimBj3li0_UxkVmE'  
 bot = telebot.TeleBot(TOKEN)
-app = Flask(name)
+app = Flask(__name__)
 
 # Хендлер /start
 @bot.message_handler(commands=['start'])
