@@ -15,7 +15,8 @@ def start(message):
     btn_photos = types.KeyboardButton("Фотоработы")
     btn_location = types.KeyboardButton("Где нахожусь")
     btn_zapic = types.KeyboardButton("Записаться")
-    markup.add(btn_prices, btn_photos)
+    btn_sales = types.KeyboardButton("Актуальные акции")
+    markup.add(btn_prices, btn_photos, btn_sales)
     markup.add(btn_location, btn_zapic)
 
     bot.send_message(message.chat.id,
@@ -31,6 +32,10 @@ def start(message):
 def show_prices(message):
     bot.send_message(message.chat.id, "Вот мои цены")
     bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMdaCkM5pCItekK_4VXSLSjVZLhV20AAnz2MRtu4khJqoznzgQMKIoBAAMCAAN5AAM2BA')
+
+@bot.message_handler(func=lambda message: messag.text == ("Актуальные акции")
+def show_sales(message):
+    bot.send_message(message.chat.id, "Новым клиентам скидка 20% или парафинотерапия")
 
 @bot.message_handler(func=lambda message: message.text == "Где нахожусь")
 def show_location(message):
