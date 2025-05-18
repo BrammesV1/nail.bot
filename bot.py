@@ -5,7 +5,7 @@ from flask import Flask, request
 
 TOKEN = '7827196968:AAHyoI5PbqbYEiTEgwvQimBj3li0_UxkVmE'  
 bot = telebot.TeleBot(TOKEN)
-app = Flask(__name__)
+app = Flask(name)
 
 # Хендлер /start
 @bot.message_handler(commands=['start'])
@@ -27,7 +27,6 @@ def start(message):
                      "ниже выбери, что тебя интересует",
                      reply_markup=markup)
 
-# Остальные кнопки
 @bot.message_handler(func=lambda message: message.text == "Цены")
 def show_prices(message):
     bot.send_message(message.chat.id, "Вот мои цены")
@@ -63,13 +62,13 @@ def handle_photo(message):
 @app.route('/', methods=['POST'])
 def webhook():
     json_str = request.get_data().decode('UTF-8')
+    print("Получен апдейт:", json_str)  # Логирование для отладки
     update = telebot.types.Update.de_json(json_str)
     bot.process_new_updates([update])
-    return '', 200
+    return 'ok', 200
 
-# Установка webhook и запуск Flask
-if __name__ == '__main__':
+if name == 'main':
     bot.remove_webhook()
-    bot.set_webhook(url='https://manikbot.onrender.com/')
+    bot.set_webhook(url='https://manikbot.onrender.com/')  # проверь URL своего сайта
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
