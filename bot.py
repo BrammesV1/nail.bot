@@ -31,7 +31,7 @@ def start(message):
 @bot.message_handler(func=lambda message: message.text == "Цены")
 def show_prices(message):
     bot.send_message(message.chat.id, "Вот мои цены")
-    bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMdaCkM5pCItekK_4VXSLSjVZLhV20AAnz2MRtu4khJqoznzgQMKIoBAAMCAAN5AAM2BA')
+    bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMdaCkM5pCItekK_4VXSLSjVZLhV20AAnz2MRtu4khJqoznzgQMKIoBAAMCAAN5AAM2BA ,\nПосмотреть больше работ можно в моём тг канале \nhttps://t.me/crazynaildmd')
 
 @bot.message_handler(func=lambda message: message.text == "Где нахожусь")
 def show_location(message):
