@@ -33,7 +33,7 @@ def show_prices(message):
     bot.send_message(message.chat.id, "Вот мои цены")
     bot.send_photo(message.chat.id, 'AgACAgIAAxkBAAMdaCkM5pCItekK_4VXSLSjVZLhV20AAnz2MRtu4khJqoznzgQMKIoBAAMCAAN5AAM2BA')
 
-@bot.message_handler(func=lambda message: messag.text == ("Актуальные акции")
+@bot.message_handler(func=lambda message: messag.text == "Актуальные акции")
 def show_sales(message):
     bot.send_message(message.chat.id, "Новым клиентам скидка 20% или парафинотерапия")
 
