@@ -5,7 +5,7 @@ from flask import Flask, request
 
 TOKEN = '7827196968:AAHyoI5PbqbYEiTEgwvQimBj3li0_UxkVmE'  
 bot = telebot.TeleBot(TOKEN)
-app = Flask = (__name__)
+app = Flask=(__name__)
 
 # Хендлер /start
 @bot.message_handler(commands=['start'])
@@ -62,7 +62,7 @@ def webhook():
     return '', 200
 
 # Установка webhook и запуск Flask
-if name == 'main':
+if __name__ == '__main__':
     bot.remove_webhook()
     bot.set_webhook(url='https://manikbot.onrender.com/')
     port = int(os.environ.get('PORT', 5000))
